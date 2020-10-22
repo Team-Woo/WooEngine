@@ -1,2 +1,2 @@
 # WooEngine
-Hazel based engine(following the guide)
+Hazel based engine
