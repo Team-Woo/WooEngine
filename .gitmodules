@@ -1,0 +1,3 @@
+[submodule "WooEngine/vendor/spdlog"]
+	path = WooEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
