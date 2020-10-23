@@ -13,10 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "WooEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "WooEngine/vendor/Glad/include"
+IncludeDir["ImGui"] = "WooEngine/vendor/imgui"
+
 
 include "WooEngine/vendor/GLFW"
 include "WooEngine/vendor/Glad"
-
+include "WooEngine/vendor/imgui"
 
 project "WooEngine"
 	location "WooEngine"
@@ -40,13 +42,15 @@ project "WooEngine"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 

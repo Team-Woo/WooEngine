@@ -4,3 +4,6 @@
 [submodule "WooEngine/vendor/GLFW"]
 	path = WooEngine/vendor/GLFW
 	url = https://github.com/TheCherno/GLFW
+[submodule "WooEngine/vendor/imgui"]
+	path = WooEngine/vendor/imgui
+	url = https://github.com/TheCherno/imgui
