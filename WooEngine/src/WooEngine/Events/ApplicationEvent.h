@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace WE {
 
 	class WOOENGINE_API WindowResizeEvent : public Event

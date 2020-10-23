@@ -10,6 +10,12 @@ workspace "WooEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "WooEngine/vendor/GLFW/include"
+
+include "WooEngine/vendor/GLFW"
+
+
 project "WooEngine"
 	location "WooEngine"
 	kind "SharedLib"
@@ -17,6 +23,9 @@ project "WooEngine"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "wepch.h"
+	pchsource "WooEngine/src/wepch.cpp"
 
 	files 
 	{
@@ -27,7 +36,14 @@ project "WooEngine"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

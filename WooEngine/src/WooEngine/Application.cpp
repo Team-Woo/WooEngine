@@ -1,12 +1,16 @@
+#include "wepch.h"
 #include "Application.h"
 
 #include "WooEngine\Events\ApplicationEvent.h"
 #include "WooEngine\Log.h"
 
+#include <GLFW/glfw3.h>
+
 namespace WE {
 
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -15,16 +19,11 @@ namespace WE {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		if (e.IsInCategory(EventCategoryApplication))
+		while (m_Running)
 		{
-			WE_TRACE(e);
-		}
-		if (e.IsInCategory(EventCategoryInput))
-		{
-			WE_TRACE(e);
-
-			while (true);
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
 		}
 	}
 }

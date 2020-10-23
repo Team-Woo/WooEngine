@@ -1,7 +1,6 @@
 #pragma once
 
 #include "WooEngine\Core.h"
-
 #include <string>
 #include <functional>
 
