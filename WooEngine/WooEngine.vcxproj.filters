@@ -4,6 +4,9 @@
     <Filter Include="WooEngine">
       <UniqueIdentifier>{505A6702-BCC4-1B79-0503-CD1E71ACF9CD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WooEngine\Events">
+      <UniqueIdentifier>{344C662D-2045-857F-4977-6A0435CF648B}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\WooEngine.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\WooEngine\EntryPoint.h">
       <Filter>WooEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WooEngine\Events\ApplicationEvent.h">
+      <Filter>WooEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WooEngine\Events\Event.h">
+      <Filter>WooEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WooEngine\Events\KeyEvent.h">
+      <Filter>WooEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WooEngine\Events\MouseEvent.h">
+      <Filter>WooEngine\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\WooEngine\Log.h">
       <Filter>WooEngine</Filter>
