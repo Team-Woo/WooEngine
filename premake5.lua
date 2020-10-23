@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "WooEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "WooEngine/vendor/Glad/include"
 
 include "WooEngine/vendor/GLFW"
+include "WooEngine/vendor/Glad"
 
 
 project "WooEngine"
@@ -37,12 +39,14 @@ project "WooEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "WooEngine"
 		defines
 		{
 			"WE_PLATFORM_WINDOWS",
-			"WE_BUILD_DLL"
+			"WE_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -64,16 +69,19 @@ project "WooEngine"
 
 		filter "configurations:Debug"
 			defines "WE_DEBUG"
+			buildoptions "/MDd"
 			symbols "On"
 
 			
 		filter "configurations:Release"
 			defines "WE_RELEASE"
+			buildoptions "/MD"
 			optimize "On"
 
 			
 		filter "configurations:Dist"
 			defines "WE_DIST"
+			buildoptions "/MD"
 			optimize "On"
 
 project "Sandbox"
@@ -113,14 +121,17 @@ project "Sandbox"
 
 		filter "configurations:Debug"
 			defines "WE_DEBUG"
+			buildoptions "/MDd"
 			symbols "On"
 
 			
 		filter "configurations:Release"
 			defines "WE_RELEASE"
+			buildoptions "/MD"
 			optimize "On"
 
 			
 		filter "configurations:Dist"
 			defines "WE_DIST"
+			buildoptions "/MD"
 			optimize "On"
