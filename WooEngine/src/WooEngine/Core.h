@@ -10,6 +10,10 @@
 	#error Woo Engine only supports Windows!
 #endif
 
+#ifdef WE_DEBUG
+	#define WE_ENABLE_ASSERTS
+#endif
+
 #ifdef WE_ENABLE_ASSERTS
 	#define WE_ASSERT(x, ...) { if(!(x)) { WE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define WE_CORE_ASSERT(x, ...) { if(!(x)) { WE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
